@@ -56,7 +56,7 @@ async function run() {
             if (user?.role === 'admin') {
                 isAdmin = true;
             }
-            res.json({ admim: isAdmin });
+            res.json({ admin: isAdmin });
         })
 
         // USER POST API
