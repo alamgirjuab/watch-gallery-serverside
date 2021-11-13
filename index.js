@@ -20,6 +20,7 @@ async function run() {
         // console.log('database connected successfully');
         const database = client.db('watchGallery');
         const productCollection = database.collection('products');
+        const usersCollection = database.collection('users');
 
         // GET API
         app.get('/products', async (req, res) => {
@@ -45,6 +46,14 @@ async function run() {
             console.log(result);
             res.json(result);
         });
+
+        // USER POST API
+        app.post('/users', async (req, res) => {
+            const user = req.body;
+            const result = await usersCollection.insertOne(user);
+            console.log(result);
+            res.json(result);
+        })
 
         // DELETE API
         app.delete('/products/:id', async (req, res) => {
