@@ -47,6 +47,18 @@ async function run() {
             res.json(result);
         });
 
+        // GET Users info (is admin or not)
+        app.get('/users/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email };
+            const user = await usersCollection.findOne(query);
+            let isAdmin = false;
+            if (user?.role === 'admin') {
+                isAdmin = true;
+            }
+            res.json({ admim: isAdmin });
+        })
+
         // USER POST API
         app.post('/users', async (req, res) => {
             const user = req.body;
@@ -60,6 +72,16 @@ async function run() {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
             const result = await productCollection.deleteOne(query);
+            res.json(result);
+        })
+
+        // Make Admin
+        app.put('/users/admin', async (req, res) => {
+            const user = req.body;
+            console.log('put', user);
+            const filter = { email: user.email };
+            const updateDoc = { $set: { role: 'admin' } };
+            const result = await usersCollection.updateOne(filter, updateDoc);
             res.json(result);
         })
     }
