@@ -2,7 +2,7 @@
 # WATCH GALLERY
 
 Watch Gallery live site here: (https://watch-gallery-8c775.web.app/).</br>
-Watch Gallery Frontend link here: (https://github.com/programming-hero-web-course-4/niche-website-client-side-alamgirjuab/blob/main/README.md).
+Watch Gallery Frontend link here: (https://github.com/alamgirjuab/watch-gallery-clientside).
 
 ### `Website Features`
 •	Exclusive Collections </br>
